@@ -1,0 +1,96 @@
+/* global.css — variables y estilos base */
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&family=Barlow:wght@300;400;500&display=swap');
+
+/* =====================
+   VARIABLES — DARK MODE (default)
+   ===================== */
+:root {
+  --color-bg:       #0a0c10;
+  --color-surface:  #111418;
+  --color-surface2: #181c22;
+  --color-border:   rgba(255, 255, 255, 0.07);
+  --color-border2:  rgba(255, 255, 255, 0.12);
+  --color-accent:   #1a6ee8;
+  --color-accent2:  #4d9fff;
+  --color-gold:     #c8922a;
+  --color-text:     #e8eaf0;
+  --color-muted:    #6b7280;
+  --color-dim:      #3d4350;
+
+  --font-head: 'Rajdhani', sans-serif;
+  --font-mono: 'Share Tech Mono', monospace;
+  --font-body: 'Barlow', sans-serif;
+}
+
+/* =====================
+   VARIABLES — LIGHT MODE
+   ===================== */
+[data-theme="light"] {
+  --color-bg:       #f4f5f7;
+  --color-surface:  #ffffff;
+  --color-surface2: #f0f2f5;
+  --color-border:   rgba(0, 0, 0, 0.08);
+  --color-border2:  rgba(0, 0, 0, 0.15);
+  --color-accent:   #1a6ee8;
+  --color-accent2:  #0d56c8;
+  --color-gold:     #9a6a10;
+  --color-text:     #111418;
+  --color-muted:    #5a6270;
+  --color-dim:      #9ba3af;
+}
+
+/* =====================
+   RESET Y BASE
+   ===================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* =====================
+   TIPOGRAFÍA GLOBAL
+   ===================== */
+h1, h2, h3 {
+  font-family: var(--font-head);
+  line-height: 1.1;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* =====================
+   ANIMACIÓN DE ENTRADA
+   ===================== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease both;
+}
+
+/* =====================
+   SCROLLBAR CUSTOM
+   ===================== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-dim); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-muted); }

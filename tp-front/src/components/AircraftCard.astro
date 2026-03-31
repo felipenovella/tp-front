@@ -1,0 +1,230 @@
+---
+// AircraftCard.astro — tarjeta de cada avión
+// Props que recibe desde index.astro
+const { plane } = Astro.props;
+
+function eraLabel(era) {
+  if (era === "classic") return "CLÁSICO";
+  if (era === "modern") return "MODERNO";
+  return "WIDEBODY";
+}
+
+function statusLabel(status) {
+  if (status === "active") return "EN SERVICIO";
+  if (status === "grounded") return "SUSPENDIDO";
+  return "RETIRADO";
+}
+---
+
+<article
+  class="card"
+  data-era={plane.era}
+  data-model={plane.model.toLowerCase()}
+  data-id={plane.id}
+  role="button"
+  tabindex="0"
+  aria-label={`Ver detalles de Boeing ${plane.model}`}
+>
+  <div class="card-top">
+    <span class="model-id">BOE-{plane.id}</span>
+    <span class={`era-badge era-${plane.era}`}>{eraLabel(plane.era)}</span>
+  </div>
+
+  <div class="card-silhouette" aria-hidden="true">
+    <svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+      {plane.era === "widebody" ? (
+        <>
+          <path d="M8,36 L130,36 L175,26 L200,28 L182,33 L135,40 L8,40 Z" fill="currentColor"/>
+          <path d="M75,36 L70,12 L95,12 L95,36" fill="currentColor"/>
+          <path d="M55,40 L55,48 L68,48 L68,40" fill="currentColor"/>
+          <circle cx="60" cy="50" r="5" fill="currentColor"/>
+          <circle cx="115" cy="50" r="5" fill="currentColor"/>
+          <circle cx="155" cy="50" r="5" fill="currentColor"/>
+        </>
+      ) : (
+        <>
+          <path d="M10,35 L120,35 L160,28 L185,30 L170,33 L125,38 L10,38 Z" fill="currentColor"/>
+          <path d="M80,35 L80,15 L100,15 L100,35" fill="currentColor"/>
+          <path d="M60,38 L60,45 L70,45 L70,38" fill="currentColor"/>
+          <circle cx="65" cy="46" r="4" fill="currentColor"/>
+          <circle cx="110" cy="46" r="4" fill="currentColor"/>
+        </>
+      )}
+    </svg>
+  </div>
+
+  <div class="card-title">
+    <div class="model-name">{plane.model}</div>
+    <div class="model-full">{plane.full}</div>
+  </div>
+
+  <dl class="specs">
+    <div class="spec">
+      <dt class="spec-label">PASAJEROS</dt>
+      <dd class="spec-value">{plane.pax}</dd>
+    </div>
+    <div class="spec">
+      <dt class="spec-label">ALCANCE</dt>
+      <dd class="spec-value">{plane.range}</dd>
+    </div>
+    <div class="spec">
+      <dt class="spec-label">VELOCIDAD</dt>
+      <dd class="spec-value">{plane.speed}</dd>
+    </div>
+    <div class="spec">
+      <dt class="spec-label">MOTORES</dt>
+      <dd class="spec-value spec-small">{plane.engines}</dd>
+    </div>
+  </dl>
+
+  <footer class="card-footer">
+    <span class="debut-year">DEBUT <strong>{plane.debut}</strong></span>
+    <span class="status">
+      <span class={`status-dot status-${plane.status}`} aria-hidden="true"></span>
+      <span class="status-text">{statusLabel(plane.status)}</span>
+    </span>
+  </footer>
+</article>
+
+<style>
+  .card {
+    background: var(--color-surface);
+    padding: 22px;
+    cursor: pointer;
+    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-bottom: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+  }
+
+  .card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--color-accent);
+    transition: height 0.25s ease;
+  }
+
+  .card:hover,
+  .card:focus { background: var(--color-surface2); outline: none; }
+  .card:hover::after,
+  .card:focus::after { height: 100%; }
+
+  /* Top row */
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .model-id {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--color-accent2);
+    letter-spacing: 2px;
+  }
+
+  .era-badge {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    padding: 3px 7px;
+    border: 1px solid var(--color-border2);
+    border-radius: 2px;
+    letter-spacing: 1px;
+  }
+  .era-classic { border-color: var(--color-gold) !important; color: var(--color-gold); }
+  .era-modern  { border-color: var(--color-accent) !important; color: var(--color-accent2); }
+  .era-widebody { border-color: #7c5cbf !important; color: #a98be8; }
+
+  /* Silhouette */
+  .card-silhouette {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent);
+    opacity: 0.15;
+    transition: opacity 0.2s;
+  }
+  .card:hover .card-silhouette,
+  .card:focus .card-silhouette { opacity: 0.35; }
+  .card-silhouette svg { width: 100%; height: 100%; }
+
+  /* Title */
+  .model-name {
+    font-family: var(--font-head);
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 1;
+    color: var(--color-text);
+  }
+  .model-full {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--color-muted);
+    margin-top: 2px;
+  }
+
+  /* Specs */
+  .specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding-top: 12px;
+    border-top: 1px solid var(--color-border);
+  }
+  .spec { display: flex; flex-direction: column; gap: 2px; }
+  .spec-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--color-dim);
+    letter-spacing: 1.5px;
+  }
+  .spec-value {
+    font-family: var(--font-head);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+  }
+  .spec-small { font-size: 11px !important; }
+
+  /* Footer */
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .debut-year {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--color-muted);
+  }
+  .debut-year strong { color: var(--color-accent2); }
+
+  .status { display: flex; align-items: center; gap: 5px; }
+  .status-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .status-active  { background: #22c55e; box-shadow: 0 0 6px #22c55e; }
+  .status-retired { background: var(--color-gold); }
+  .status-grounded { background: #ef4444; box-shadow: 0 0 6px #ef444460; }
+
+  .status-text {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--color-muted);
+  }
+</style>

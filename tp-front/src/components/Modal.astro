@@ -1,0 +1,166 @@
+---
+// Modal.astro — modal de detalle de cada avión
+// No recibe props: se llena dinámicamente desde JS
+---
+
+<div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+  <div class="modal-box" id="modal-box">
+
+    <div class="modal-header">
+      <div>
+        <div class="modal-id" id="modal-id"></div>
+        <h2 class="modal-model" id="modal-title"></h2>
+        <p class="modal-full" id="modal-full"></p>
+      </div>
+      <button class="modal-close" id="modal-close" aria-label="Cerrar">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <p class="modal-desc" id="modal-desc"></p>
+
+      <dl class="modal-specs" id="modal-specs">
+        <!-- Se llena desde JS -->
+      </dl>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeOverlay 0.2s ease;
+  }
+
+  .modal-overlay[hidden] { display: none; }
+
+  @keyframes fadeOverlay {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  .modal-box {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border2);
+    max-width: 560px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideUp 0.25s ease;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Header */
+  .modal-header {
+    padding: 24px 28px 20px;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .modal-id {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--color-accent2);
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+
+  .modal-model {
+    font-family: var(--font-head);
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1;
+    margin: 0;
+  }
+
+  .modal-full {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--color-muted);
+    margin-top: 4px;
+  }
+
+  .modal-close {
+    background: none;
+    border: 1px solid var(--color-border2);
+    color: var(--color-muted);
+    cursor: pointer;
+    font-size: 13px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    flex-shrink: 0;
+    transition: all 0.15s;
+  }
+  .modal-close:hover {
+    border-color: var(--color-accent);
+    color: var(--color-text);
+  }
+
+  /* Body */
+  .modal-body { padding: 24px 28px; }
+
+  .modal-desc {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--color-muted);
+    padding: 16px;
+    border-left: 3px solid var(--color-accent);
+    background: rgba(26, 110, 232, 0.05);
+    margin-bottom: 20px;
+  }
+
+  /* Specs grid */
+  .modal-specs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--color-border);
+  }
+
+  .modal-spec {
+    background: var(--color-surface2);
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .modal-spec dt {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--color-dim);
+    letter-spacing: 1.5px;
+  }
+
+  .modal-spec dd {
+    font-family: var(--font-head);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  @media (max-width: 500px) {
+    .modal-specs { grid-template-columns: repeat(2, 1fr); }
+    .modal-model { font-size: 36px; }
+  }
+</style>

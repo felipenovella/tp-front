@@ -2,6 +2,7 @@ export const planes = [
   {
     id: "B707",
     model: "707",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Boeing_707-321B_Pan_Am_Freer.jpg/640px-Boeing_707-321B_Pan_Am_Freer.jpg",
     full: "Boeing 707-320C Intercontinental",
     era: "classic",
     debut: 1958,
@@ -18,6 +19,7 @@ export const planes = [
   {
     id: "B717",
     model: "717",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/N925AT_Delta_Air_Lines_Boeing_717-231_s-n_55079_%2839004908934%29.jpg/640px-N925AT_Delta_Air_Lines_Boeing_717-231_s-n_55079_%2839004908934%29.jpg",
     full: "Boeing 717 (-100 -200)",
     era: "classic",
     debut: 1999,
@@ -34,6 +36,7 @@ export const planes = [
   {
     id: "B727",
     model: "727",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Boeing_727_Syrian.jpg/640px-Boeing_727_Syrian.jpg",
     full: "Boeing 727 (-100 -200)",
     era: "classic",
     debut: 1963,
@@ -50,7 +53,8 @@ export const planes = [
   {
     id: "B737",
     model: "737",
-    full: "Boeing 737 (-100 -200 -300 -400 -500 -600 -700 -800 -900 -MAX 7 -MAX 8 -MAX 9 -MAX 10",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Delta_Boeing_737-900ER_N837DN_BWI_MD1.jpg/640px-Delta_Boeing_737-900ER_N837DN_BWI_MD1.jpg",
+    full: "Boeing 737 (-100 -200 -300 -400 -500 -600 -700 -800 -900 -MAX 7 -MAX 8 -MAX 9 -MAX 10)",
     era: "modern",
     debut: 1968,
     status: "active",
@@ -66,6 +70,7 @@ export const planes = [
   {
     id: "B747",
     model: "747",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Lufthansa_Boeing_747-8_D-ABYA_MD1.jpg/640px-Lufthansa_Boeing_747-8_D-ABYA_MD1.jpg",
     full: "Boeing 747 (-100 -200 -400 -SP -8)",
     era: "widebody",
     debut: 1969,
@@ -83,10 +88,11 @@ export const planes = [
   {
     id: "B757",
     model: "757",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Boeing_757-23N%28WL%29_Air_Astana_P4-KCU.jpg/640px-Boeing_757-23N%28WL%29_Air_Astana_P4-KCU.jpg",
     full: "Boeing 757 (-200 -300)",
     era: "classic",
     debut: 1982,
-    status: "retired",
+    status: "active",
     pax: "243",
     range: "7,270 km",
     speed: "850 km/h",
@@ -99,6 +105,7 @@ export const planes = [
   {
     id: "B767",
     model: "767",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Delta_Air_Lines_B767-332_N130DL.jpg/640px-Delta_Air_Lines_B767-332_N130DL.jpg",
     full: "Boeing 767 (-200 -300 -300er -400 -400er)",
     era: "widebody",
     debut: 1982,
@@ -115,6 +122,7 @@ export const planes = [
   {
     id: "B777",
     model: "777",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Qatar_Boeing_777-300ER_A7-BES_IAD_VA1.jpg/640px-Qatar_Boeing_777-300ER_A7-BES_IAD_VA1.jpg",
     full: "Boeing 777 (-200 -200LR -200ER -300 -300ER)",
     era: "widebody",
     debut: 1994,
@@ -131,6 +139,7 @@ export const planes = [
   {
     id: "B787",
     model: "787",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Boeing_787_N1015B_ANA_Airlines_%2827611880663%29_%28cropped%29.jpg/640px-Boeing_787_N1015B_ANA_Airlines_%2827611880663%29_%28cropped%29.jpg",
     full: "Boeing 787 (-8 -9 -10)",
     era: "modern",
     debut: 2011,
@@ -148,6 +157,7 @@ export const planes = [
   {
     id: "B747F",
     model: "747F",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Boeing_747-46NF_Atlas_Air.jpg/640px-Boeing_747-46NF_Atlas_Air.jpg",
     full: "Boeing 747-8 Freighter",
     era: "widebody",
     debut: 2010,

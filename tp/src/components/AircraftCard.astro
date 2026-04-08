@@ -11,7 +11,6 @@ function eraLabel(era) {
 
 function statusLabel(status) {
   if (status === "active") return "EN SERVICIO";
-  if (status === "grounded") return "SUSPENDIDO";
   return "RETIRADO";
 }
 ---
@@ -30,28 +29,9 @@ function statusLabel(status) {
     <span class={`era-badge era-${plane.era}`}>{eraLabel(plane.era)}</span>
   </div>
 
-  <div class="card-silhouette" aria-hidden="true">
-    <svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-      {plane.era === "widebody" ? (
-        <>
-          <path d="M8,36 L130,36 L175,26 L200,28 L182,33 L135,40 L8,40 Z" fill="currentColor"/>
-          <path d="M75,36 L70,12 L95,12 L95,36" fill="currentColor"/>
-          <path d="M55,40 L55,48 L68,48 L68,40" fill="currentColor"/>
-          <circle cx="60" cy="50" r="5" fill="currentColor"/>
-          <circle cx="115" cy="50" r="5" fill="currentColor"/>
-          <circle cx="155" cy="50" r="5" fill="currentColor"/>
-        </>
-      ) : (
-        <>
-          <path d="M10,35 L120,35 L160,28 L185,30 L170,33 L125,38 L10,38 Z" fill="currentColor"/>
-          <path d="M80,35 L80,15 L100,15 L100,35" fill="currentColor"/>
-          <path d="M60,38 L60,45 L70,45 L70,38" fill="currentColor"/>
-          <circle cx="65" cy="46" r="4" fill="currentColor"/>
-          <circle cx="110" cy="46" r="4" fill="currentColor"/>
-        </>
-      )}
-    </svg>
-  </div>
+  <div class="card-image">
+  <img src={plane.image} alt={`Boeing ${plane.model}`} loading="lazy" />
+</div>
 
   <div class="card-title">
     <div class="model-name">{plane.model}</div>
@@ -100,7 +80,22 @@ function statusLabel(status) {
     border-bottom: 1px solid var(--color-border);
     border-right: 1px solid var(--color-border);
   }
-
+  .card-image {
+  height: 140px;
+  overflow: hidden;
+  border-radius: 2px;
+}
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  transition: opacity 0.2s, transform 0.3s;
+}
+.card:hover .card-image img {
+  opacity: 1;
+  transform: scale(1.03);
+}
   .card::after {
     content: '';
     position: absolute;

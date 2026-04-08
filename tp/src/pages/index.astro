@@ -329,10 +329,10 @@ import '../styles/global.css';
     const plane = PLANES.find(p => p.id === id);
     if (!plane) return;
 
-    document.getElementById('modal-id').textContent   = 'BOE-' + plane.id;
-    document.getElementById('modal-title').textContent = plane.model;
-    document.getElementById('modal-full').textContent  = plane.full;
-    document.getElementById('modal-desc').textContent  = plane.desc;
+    document.getElementById('modal-id')!.textContent   = 'BOE-' + plane.id;
+    document.getElementById('modal-title')!.textContent = plane.model;
+    document.getElementById('modal-full')!.textContent  = plane.full;
+    document.getElementById('modal-desc')!.textContent  = plane.desc;
 
     const specsEl = document.getElementById('modal-specs');
     specsEl.innerHTML = [
@@ -835,9 +835,7 @@ import '../styles/global.css';
     border: 0;
   }
 
-  /* ============================
-     RESPONSIVE
-  ============================= */
+  /* RESPONSIVE */
   @media (max-width: 768px) {
     .hero { padding: 48px 20px 40px; }
     .hero-stats { gap: 24px; }

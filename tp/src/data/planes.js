@@ -19,7 +19,7 @@ export const planes = [
     id: "B717",
     model: "717",
     full: "Boeing 717-200",
-    era: "modern",
+    era: "classic",
     debut: 1999,
     status: "active",
     pax: "134",

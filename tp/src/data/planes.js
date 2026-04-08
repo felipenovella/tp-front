@@ -13,12 +13,12 @@ export const planes = [
     wingspan: "44.4 m",
     length: "46.6 m",
     ceiling: "11,887 m",
-    desc: "El primer avión comercial a reacción de Boeing marcó el inicio de la era del jet en la aviación civil. Revolucionó los viajes intercontinentales y estableció a Boeing como líder mundial. Operado por más de 100 aerolíneas, voló por primera vez el 15 de julio de 1954.",
+    desc: "El primer avión comercial a reacción de Boeing, marcó el inicio de la era del jet en la aviación civil. Revolucionó los viajes intercontinentales y estableció a Boeing como líder mundial. Operado por más de 100 aerolíneas, voló por primera vez el 15 de julio de 1954.",
   },
   {
     id: "B717",
     model: "717",
-    full: "Boeing 717-200",
+    full: "Boeing 717 (-100 -200)",
     era: "classic",
     debut: 1999,
     status: "active",
@@ -34,7 +34,7 @@ export const planes = [
   {
     id: "B727",
     model: "727",
-    full: "Boeing 727-200 Advanced",
+    full: "Boeing 727 (-100 -200)",
     era: "classic",
     debut: 1963,
     status: "retired",
@@ -50,7 +50,7 @@ export const planes = [
   {
     id: "B737",
     model: "737",
-    full: "Boeing 737 MAX 10",
+    full: "Boeing 737 (-100 -200 -300 -400 -500 -600 -700 -800 -900 -MAX 7 -MAX 8 -MAX 9 -MAX 10",
     era: "modern",
     debut: 1968,
     status: "active",

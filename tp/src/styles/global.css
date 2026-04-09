@@ -23,9 +23,7 @@
   --font-body: 'Barlow', sans-serif;
 }
 
-/* =====================
-   VARIABLES — LIGHT MODE
-   ===================== */
+/* variables - modo claro*/
 [data-theme="light"] {
   --color-bg:       #f4f5f7;
   --color-surface:  #ffffff;
@@ -40,9 +38,7 @@
   --color-dim:      #9ba3af;
 }
 
-/* =====================
-   RESET Y BASE
-   ===================== */
+/* reset y base */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -83,10 +79,3 @@ a:hover { text-decoration: underline; }
   animation: fadeIn 0.4s ease both;
 }
 
-/* =====================
-   SCROLLBAR CUSTOM
-   ===================== */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--color-bg); }
-::-webkit-scrollbar-thumb { background: var(--color-dim); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-muted); }

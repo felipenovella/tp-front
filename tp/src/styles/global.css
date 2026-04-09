@@ -61,9 +61,7 @@ body {
   transition: background 0.3s, color 0.3s;
 }
 
-/* =====================
-   TIPOGRAFÍA GLOBAL
-   ===================== */
+/* tipografía */
 h1, h2, h3 {
   font-family: var(--font-head);
   line-height: 1.1;
@@ -75,9 +73,7 @@ a {
 }
 a:hover { text-decoration: underline; }
 
-/* =====================
-   ANIMACIÓN DE ENTRADA
-   ===================== */
+/*animacion de entrada */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }

@@ -17,3 +17,7 @@ Opcionales
 ✅ Componentes reutilizables — NavBar.astro, AircraftCard.astro, Modal.astro
 ✅ Animaciones — fade-in en cards, hover con barra lateral animada
 ✅ Dark mode
+
+# Como ejecutar
+el proyecto está subido a vercel
+boeingflota.vercel.app
